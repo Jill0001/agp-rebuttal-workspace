@@ -2,16 +2,14 @@
 
 2026-11-10, America/Chicago
 
-Code and deployment preparation are implemented. There is no deployed online workspace yet. The owner has not created a Supabase account and asked to finish code and preparation first.
+GitHub Pages deployment succeeded at https://jill0001.github.io/agp-rebuttal-workspace/ . The public repository contains application code only. Supabase Free hosts authentication and protected research data.
 
-Completed components include email/password login, membership enforcement, database-side user identity checks, optimistic version saving, immutable response history through the browser API, comment persistence and conditional deletion, per-user draft recovery, and visible-page synchronization every 10 seconds.
+Schema and the current local workspace snapshot have been imported and counts verified. Anonymous table access and RPC calls were denied in live checks. Public signup is disabled. The deployed login page loads correctly.
 
-GitHub Actions configuration tests the application and deploys only bundled public assets after public Supabase configuration is supplied. The SQL schema and owner-run initial import are ready. A preliminary private export contains 17 response records, 248 history rows and 1 annotation. Generate a fresh export when actually switching to online editing.
+Owner login account creation and membership approval are currently pending. No collaborator accounts have been granted access yet. Full signed-in browser verification remains pending.
 
-Remaining setup is a free Supabase project, running the schema and final import, creating member Auth accounts and authorizing their UUIDs, then publishing the standalone source repository and configuring Pages variables. Live Supabase authentication, project settings and hosted network access must be verified after setup.
+Implementation includes email/password login, UUID membership enforcement, database-side identity checks, optimistic version saving, response history, conditional comment deletion, user-isolated recovery drafts and visible-page synchronization every 10 seconds. Same-response edits require explicit merging.
 
-## Verification
+9 local tests and 4 Chrome browser tests passed, including cross-tab identity changes and draft recovery. GitHub Actions ran the tests and deployment successfully. Local test content is synthetic and isolated from the production database.
 
-9 local tests passed for database authorization, identity binding, version/history behavior, comments, import preservation, draft isolation and public bundling. 4 Chrome browser tests passed for login, save/merge/reload, mobile layout, nonmember denial, comment creation/recovery/supplements/deletion and cross-tab identity changes. Browser network responses were synthetic; live Supabase remains untested until a project exists.
-
-Independent code review found and verified fixes for annotation storage-key shadowing and cross-tab account changes. Production dependency audit reported zero vulnerabilities. Public source scan found no paper title or full review paragraphs. Final build without account configuration shows the setup screen.
+The original local site remains available during activation. Once activation completes, edit through the online URL to keep one shared source of truth. The original SQLite data is retained as a backup.
