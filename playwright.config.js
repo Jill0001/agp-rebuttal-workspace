@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'./tests/browser',use:{baseURL:'http://127.0.0.1:8908',channel:process.env.PLAYWRIGHT_CHANNEL||undefined},webServer:{command:'SUPABASE_URL=https://example.supabase.co SUPABASE_PUBLISHABLE_KEY=sb_publishable_test npm run build && python3 -m http.server 8908 --bind 127.0.0.1',url:'http://127.0.0.1:8908/dist/',reuseExistingServer:false}});
